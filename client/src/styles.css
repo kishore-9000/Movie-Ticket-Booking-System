@@ -1,0 +1,19 @@
+body {
+  background-color: #111;
+  font-family: Arial, sans-serif;
+}
+
+.hero-section {
+  height: 60vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba');
+  background-size: cover;
+  background-position: center;
+}
+
+.movie-card {
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
