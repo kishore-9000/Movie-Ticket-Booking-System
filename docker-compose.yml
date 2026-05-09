@@ -1,35 +1,35 @@
 version: '3.8'
 
 services:
-  mysql:
+  db:
     image: mysql:8.0
+    container_name: movie_db
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: movie_booking
+      MYSQL_ROOT_PASSWORD: rootpassword
     ports:
       - "3306:3306"
     volumes:
       - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
   server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: ./server
+    container_name: movie_server
     ports:
       - "5000:5000"
     environment:
-      DB_HOST: mysql
-      DB_USER: root
-      DB_PASSWORD: root
-      DB_NAME: movie_booking
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=movie_booking
     depends_on:
-      - mysql
+      - db
 
   client:
-    image: nginx:alpine
+    build: ./client
+    container_name: movie_client
     ports:
-      - "3000:80"
-    volumes:
-      - ./client/build:/usr/share/nginx/html
+      - "3000:3000"
     depends_on:
       - server
