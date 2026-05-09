@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telugu Movie Ticket Booking 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    header{
+      width:100%;
+      min-height:100vh;
+      background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+      url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      flex-direction:column;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.7);
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:700;
+      color:#ff004f;
+      letter-spacing:1px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#fff;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav ul li a:hover{
+      color:#ff004f;
+    }
+
+    .hero{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:60px 8%;
+      gap:40px;
+    }
+
+    .hero-content h1{
+      font-size:70px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-content h1 span{
+      color:#ff004f;
+    }
+
+    .hero-content p{
+      font-size:18px;
+      max-width:650px;
+      color:#d1d5db;
+      line-height:1.8;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      padding:15px 35px;
+      border:none;
+      background:#ff004f;
+      color:#fff;
+      border-radius:50px;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.4s;
+      box-shadow:0 10px 30px rgba(255,0,79,0.3);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      background:#ff336f;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .stat-card{
+      background:rgba(255,255,255,0.08);
+      padding:20px;
+      border-radius:20px;
+      backdrop-filter:blur(10px);
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-card h2{
+      color:#ff004f;
+      font-size:35px;
+    }
+
+    section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:50px;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#cbd5e1;
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .movies-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .movie-card{
+      background:#111827;
+      border-radius:25px;
+      overflow:hidden;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.08);
+      position:relative;
+    }
+
+    .movie-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .movie-card img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+    }
+
+    .movie-info{
+      padding:25px;
+    }
+
+    .movie-info h3{
+      font-size:24px;
+      margin-bottom:12px;
+    }
+
+    .movie-info p{
+      color:#d1d5db;
+      margin-bottom:10px;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#ff004f;
+      padding:6px 14px;
+      border-radius:20px;
+      font-size:12px;
+      margin-bottom:15px;
+    }
+
+    .price{
+      font-size:22px;
+      color:#22c55e;
+      font-weight:700;
+      margin-top:10px;
+      margin-bottom:15px;
+    }
+
+    .theatre-section{
+      background:#111827;
+      border-radius:30px;
+      padding:40px;
+      margin-top:80px;
+    }
+
+    .theatres{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .theatre-card{
+      background:#1e293b;
+      padding:30px;
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .theatre-card:hover{
+      background:#273549;
+      transform:scale(1.03);
+    }
+
+    .booking-area{
+      margin-top:100px;
+      background:linear-gradient(135deg,#111827,#1e293b);
+      padding:60px;
+      border-radius:30px;
+    }
+
+    .booking-container{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .screen{
+      width:100%;
+      height:80px;
+      background:#fff;
+      margin:20px 0 40px;
+      border-radius:10px;
+      transform:rotateX(-45deg);
+      box-shadow:0 0 20px #fff;
+    }
+
+    .seats{
+      display:grid;
+      grid-template-columns:repeat(8,1fr);
+      gap:12px;
+    }
+
+    .seat{
+      width:40px;
+      height:40px;
+      border-radius:10px;
+      background:#334155;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .seat.selected{
+      background:#22c55e;
+    }
+
+    .seat.booked{
+      background:#ef4444;
+      cursor:not-allowed;
+    }
+
+    .booking-form{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .booking-form input,
+    .booking-form select{
+      padding:16px;
+      border:none;
+      border-radius:15px;
+      background:#0f172a;
+      color:#fff;
+      font-size:15px;
+    }
+
+    footer{
+      background:#020617;
+      padding:50px 8%;
+      text-align:center;
+      margin-top:100px;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    footer h2{
+      color:#ff004f;
+      margin-bottom:15px;
+    }
+
+    .workflow{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .workflow-card{
+      background:#111827;
+      padding:30px;
+      border-radius:25px;
+      transition:0.4s;
+    }
+
+    .workflow-card:hover{
+      transform:translateY(-10px);
+      background:#1f2937;
+    }
+
+    .workflow-card h3{
+      color:#ff004f;
+      margin-bottom:15px;
+      font-size:22px;
+    }
+
+    @media(max-width:1000px){
+      .hero{
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+      }
+
+      .hero-content h1{
+        font-size:50px;
+      }
+
+      .booking-container{
+        grid-template-columns:1fr;
+      }
+
+      nav ul{
+        display:none;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero-content h1{
+        font-size:38px;
+      }
+
+      .section-title h2{
+        font-size:36px;
+      }
+
+      .seats{
+        grid-template-columns:repeat(6,1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">CineVerse 2026</div>
+    <ul>
+      <li><a href="#movies">Movies</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#theatres">Theatres</a></li>
+      <li><a href="#workflow">Workflow</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Book Your <span>Favorite Telugu Movies</span> In Seconds</h1>
+      <p>
+        A futuristic Telugu movie ticket booking platform designed with premium UI/UX,
+        interactive workflows, responsive seat selection, release schedules, database-ready
+        movie management, and immersive cinema experiences for 2026 blockbusters.
+      </p>
+      <button class="btn">Explore Movies</button>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h2>10+</h2>
+          <p>Upcoming Telugu Movies</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>25K</h2>
+          <p>Bookings Completed</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>4.9★</h2>
+          <p>User Experience Rating</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="movies">
+  <div class="section-title">
+    <h2>2026 Telugu Movie Releases</h2>
+    <p>
+      Explore the latest action, romance, sci-fi, thriller, and mass entertainer Telugu movies with hero details,
+      directors, theatres, release dates, premium posters, and dynamic ticket pricing.
+    </p>
+  </div>
+
+  <div class="movies-grid">
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Action Thriller</span>
+        <h3>Shadow Warrior</h3>
+        <p><strong>Hero:</strong> Mahesh Varma</p>
+        <p><strong>Director:</strong> Arjun Dev</p>
+        <p><strong>Release:</strong> 15 January 2026</p>
+        <p><strong>Theatre:</strong> PVR Nexus Mall</p>
+        <p><strong>Location:</strong> Bengaluru</p>
+        <div class="price">₹299</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Sci-Fi</span>
+        <h3>Galaxy Force</h3>
+        <p><strong>Hero:</strong> Nikhil Raj</p>
+        <p><strong>Director:</strong> Ravi Kiran</p>
+        <p><strong>Release:</strong> 5 February 2026</p>
+        <p><strong>Theatre:</strong> INOX Phoenix</p>
+        <p><strong>Location:</strong> Hyderabad</p>
+        <div class="price">₹350</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Mass Entertainer</span>
+        <h3>King of Rayalaseema</h3>
+        <p><strong>Hero:</strong> Surya Tej</p>
+        <p><strong>Director:</strong> Lokesh Reddy</p>
+        <p><strong>Release:</strong> 12 March 2026</p>
+        <p><strong>Theatre:</strong> Cinepolis Forum</p>
+        <p><strong>Location:</strong> Chennai</p>
+        <div class="price">₹250</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Romantic Drama</span>
+        <h3>Love Beyond Time</h3>
+        <p><strong>Hero:</strong> Arvind Krishna</p>
+        <p><strong>Director:</strong> Meera Sai</p>
+        <p><strong>Release:</strong> 20 April 2026</p>
+        <p><strong>Theatre:</strong> Asian Cinemas</p>
+        <p><strong>Location:</strong> Vijayawada</p>
+        <div class="price">₹220</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Historical Epic</span>
+        <h3>Empire of Fire</h3>
+        <p><strong>Hero:</strong> Rana Vikram</p>
+        <p><strong>Director:</strong> Karthik Sena</p>
+        <p><strong>Release:</strong> 8 May 2026</p>
+        <p><strong>Theatre:</strong> AMB Cinemas</p>
+        <p><strong>Location:</strong> Hyderabad</p>
+        <div class="price">₹399</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Crime Thriller</span>
+        <h3>Dark Streets</h3>
+        <p><strong>Hero:</strong> Sai Charan</p>
+        <p><strong>Director:</strong> Vamshi Reddy</p>
+        <p><strong>Release:</strong> 17 June 2026</p>
+        <p><strong>Theatre:</strong> PVR Orion</p>
+        <p><strong>Location:</strong> Bengaluru</p>
+        <div class="price">₹270</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Adventure</span>
+        <h3>Jungle Mission</h3>
+        <p><strong>Hero:</strong> Akhil Verma</p>
+        <p><strong>Director:</strong> Pranav Sai</p>
+        <p><strong>Release:</strong> 10 July 2026</p>
+        <p><strong>Theatre:</strong> Miraj Cinemas</p>
+        <p><strong>Location:</strong> Visakhapatnam</p>
+        <div class="price">₹260</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Fantasy</span>
+        <h3>Dragon Kingdom</h3>
+        <p><strong>Hero:</strong> Varun Arya</p>
+        <p><strong>Director:</strong> Harish Anand</p>
+        <p><strong>Release:</strong> 18 August 2026</p>
+        <p><strong>Theatre:</strong> AAA Cinemas</p>
+        <p><strong>Location:</strong> Hyderabad</p>
+        <div class="price">₹320</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Comedy Family</span>
+        <h3>Family Express</h3>
+        <p><strong>Hero:</strong> Naveen Kumar</p>
+        <p><strong>Director:</strong> Srinivas Rao</p>
+        <p><strong>Release:</strong> 25 September 2026</p>
+        <p><strong>Theatre:</strong> Sandhya Theatre</p>
+        <p><strong>Location:</strong> Hyderabad</p>
+        <div class="price">₹180</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=1200&auto=format&fit=crop" alt="Movie">
+      <div class="movie-info">
+        <span class="tag">Pan India Action</span>
+        <h3>Rebel Empire</h3>
+        <p><strong>Hero:</strong> Kiran Dev</p>
+        <p><strong>Director:</strong> Ajay Kumar</p>
+        <p><strong>Release:</strong> 12 November 2026</p>
+        <p><strong>Theatre:</strong> Prasads Multiplex</p>
+        <p><strong>Location:</strong> Hyderabad</p>
+        <div class="price">₹450</div>
+        <button class="btn">Book Tickets</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="theatres">
+  <div class="theatre-section">
+    <div class="section-title">
+      <h2>Premium Theatres & Locations</h2>
+      <p>Advanced theatre management system with live seat tracking, show timings, and booking database workflows.</p>
+    </div>
+
+    <div class="theatres">
+      <div class="theatre-card">
+        <h3>PVR Cinemas</h3>
+        <p>Bengaluru - IMAX Experience</p>
+        <p>4K Dolby Atmos</p>
+      </div>
+
+      <div class="theatre-card">
+        <h3>AMB Cinemas</h3>
+        <p>Hyderabad - Luxury Recliners</p>
+        <p>Premium Screens</p>
+      </div>
+
+      <div class="theatre-card">
+        <h3>Prasads Multiplex</h3>
+        <p>Hyderabad - Giant Screen</p>
+        <p>Family Entertainment</p>
+      </div>
+
+      <div class="theatre-card">
+        <h3>INOX Cinemas</h3>
+        <p>Chennai & Hyderabad</p>
+        <p>Online Booking Enabled</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="booking-area">
+    <div class="section-title">
+      <h2>Interactive Seat Booking</h2>
+      <p>Select seats, choose movies, manage customer bookings, and simulate real-world database workflows.</p>
+    </div>
+
+    <div class="booking-container">
+
+      <div>
+        <h2 style="margin-bottom:20px;">Cinema Screen</h2>
+        <div class="screen"></div>
+
+        <div class="seats">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat booked"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat booked"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat booked"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+
+          <div class="seat"></div>
+          <div class="seat booked"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat booked"></div>
+          <div class="seat"></div>
+
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat booked"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+      </div>
+
+      <div>
+        <form class="booking-form">
+          <input type="text" placeholder="Enter Customer Name">
+
+          <select>
+            <option>Select Movie</option>
+            <option>Shadow Warrior</option>
+            <option>Galaxy Force</option>
+            <option>Empire of Fire</option>
+            <option>Rebel Empire</option>
+          </select>
+
+          <select>
+            <option>Select Theatre</option>
+            <option>PVR Cinemas</option>
+            <option>AMB Cinemas</option>
+            <option>INOX Cinemas</option>
+          </select>
+
+          <select>
+            <option>Select Time</option>
+            <option>10:00 AM</option>
+            <option>1:30 PM</option>
+            <option>5:00 PM</option>
+            <option>9:00 PM</option>
+          </select>
+
+          <input type="date">
+
+          <button type="button" class="btn" onclick="bookTickets()">Confirm Booking</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="workflow">
+  <div class="section-title">
+    <h2>Database & Workflow Features</h2>
+    <p>Designed for real-time movie management systems with scalable booking operations.</p>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-card">
+      <h3>User Authentication</h3>
+      <p>Login and register users securely with backend database support.</p>
+    </div>
+
+    <div class="workflow-card">
+      <h3>Movie Management</h3>
+      <p>Add, update, and delete movies with release schedules and theatre allocations.</p>
+    </div>
+
+    <div class="workflow-card">
+      <h3>Seat Reservation</h3>
+      <p>Real-time seat tracking with booked and available seat indicators.</p>
+    </div>
+
+    <div class="workflow-card">
+      <h3>Payment Integration</h3>
+      <p>Integrate UPI, cards, wallets, and online payment gateways.</p>
+    </div>
+
+    <div class="workflow-card">
+      <h3>Admin Dashboard</h3>
+      <p>Monitor users, bookings, theatres, and revenue analytics.</p>
+    </div>
+
+    <div class="workflow-card">
+      <h3>Responsive UI/UX</h3>
+      <p>Modern mobile-friendly interface with smooth interactions and animations.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2>CineVerse 2026</h2>
+  <p>Premium Telugu Movie Ticket Booking UI Project with Modern Frontend Design & Database Workflow Concepts.</p>
+</footer>
+
+<script>
+  const seats = document.querySelectorAll('.seat:not(.booked)');
+
+  seats.forEach(seat => {
+    seat.addEventListener('click', () => {
+      seat.classList.toggle('selected');
+    });
+  });
+
+  function bookTickets(){
+    const selectedSeats = document.querySelectorAll('.seat.selected');
+
+    if(selectedSeats.length === 0){
+      alert('Please select at least one seat!');
+      return;
+    }
+
+    alert(`Booking Successful! ${selectedSeats.length} seats reserved.`);
+
+    selectedSeats.forEach(seat => {
+      seat.classList.remove('selected');
+      seat.classList.add('booked');
+    });
+  }
+</script>
+
+</body>
+</html>
